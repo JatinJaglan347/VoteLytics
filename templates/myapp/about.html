@@ -1,0 +1,69 @@
+{% extends 'myapp/base.html' %}
+{% block about %}
+<style>
+    .about{
+        padding-top: 130px;
+        padding-bottom: 50px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+    .about-container{
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        height: 80vh;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); 
+        border-radius: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    .about-container >h1{
+        margin-top: 30px;
+        font-size: 3rem;
+        color: rgb(34, 34, 34);
+    }
+    .about-container >p{
+        width: 60vw;
+        margin-top: 3vw;
+        color: rgba(38, 38, 38, 0.913);
+    }
+    .about_contact{
+        margin-top: 70px;
+    }
+    button{
+        border-color: transparent;
+        font-weight: 500;
+        background-color: #01CFFF;
+        font-size: 1.5rem;
+        width: 20vw;
+        height: 7vh;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); 
+    }
+    .contactbtn:hover {
+        cursor: pointer;
+        background-color: transparent;
+        border-color: #fbdc16;
+        border-width: 2px;
+    }
+</style>
+
+
+<div class="about">
+    <div class="about-container">
+        <h1>About-Us</h1>
+        <p>VoteLytics is an innovative next-generation voting system designed to revolutionize the voting experience. Its primary focus is on delivering a seamless and user-friendly interface that ensures a perfect voting process. With VoteLytics, you have the flexibility to personalize your voting system by incorporating custom images, custom social media links, and even a customized background, allowing you to create a visually appealing and engaging platform.</p>
+        <p>One of the standout features of VoteLytics is its real-time result calculation. Gone are the days of waiting anxiously for the outcome of a vote. With VoteLytics, you can witness the results being calculated instantly and presented graphically. This dynamic approach not only provides transparency but also enhances the overall voting experience.</p>
+        <p>By prioritizing user experience, VoteLytics aims to redefine the way people engage with voting systems. The seamless integration of intuitive design elements and interactive features ensures that users have a smooth and enjoyable experience while casting their votes. Whether it's a small-scale election or a large-scale survey, VoteLytics caters to diverse voting needs while upholding the highest standards of user satisfaction.</p>
+        <p>With VoteLytics, you can be confident that your voting system will captivate participants with its visually appealing interface, convenient features, and efficient result visualization. It empowers you to create a voting experience that is not only efficient and accurate but also memorable and engaging for all stakeholders involved.</p>
+        <div class="about_contact"><a href="{% url 'contact' %}"><button class="contactbtn">Contact</button></a></div>
+    </div>
+    
+
+</div>
+
+{% endblock about %}

@@ -1,0 +1,86 @@
+{% extends 'myapp/base.html' %}
+{% block created_error %}
+<style>
+    .created1{
+        padding-top: 100px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 90px;
+        display: flex;
+    }
+    .created1-container{
+        margin: auto;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        height: 80vh;
+        background-color: white;
+        box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5); 
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    .created1-content{
+        width: 100%;
+        margin: auto;
+        height: 65%;
+    }
+    .created1-content h1{
+        margin-top: 40px;
+        font-size: 2.5rem;
+        color: rgb(106, 106, 106);
+    }
+    .created1-content h2{
+        font-size: 2rem;
+        color: rgb(106, 106, 106);
+    }
+
+    .emoji{
+        font-size: 10rem;
+    }
+    .created1-buttons{
+        width: 100%;
+        height: 35%;
+        border-radius: 10px;
+        background-color: rgba(218, 218, 218, 0.633);
+        box-shadow: 0 0px 10px rgba(0, 0, 0, 0.8);
+       
+    }
+
+    .again{
+        width: 50%;
+        margin: auto;
+        margin-top: 7%;
+        height: 5vh;
+        font-size: 1.5rem;
+        border-radius: 15px;
+        border-color: transparent;
+        background-color: #fee01a;
+        color: rgb(69, 69, 69);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        cursor: pointer; 
+    }
+    .again:hover{
+        border-width: 2px;
+        border-color: #fee01a;
+        background-color: transparent;
+    }
+
+
+</style>
+    <div class="created1">
+        <div class="created1-container">
+            <div class="created1-content">
+                <h1>Sorry</h1>
+                <div class="emoji">&#128557;</div>
+                <h2>Your voting system has some error Try Again!</h2>
+            </div>
+            <div class="created1-buttons">
+                <a href="{% url 'vote' %}"><button class="again">Create the page again</button></a>
+            </div>
+        </div>
+    </div>
+{% endblock created_error %}

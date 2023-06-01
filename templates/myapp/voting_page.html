@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+	<link href="{% static 'css/voting_page.css' %}" rel="stylesheet"> 
+	<link rel="shortcut icon" href="footer-logo.png" type="image/x-icon">
+    <title>{{ latest_entry.brandtitle}}</title>
+	
+</head>
+<body style="background-image: url({{ latest_entry.backgroundimg.url }});">
+
+	
+  <div class="nav">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+      <div class="nav-title">
+        <b>{{ latest_entry.brandtitle}}</b>
+      </div>
+    </div>
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+    
+    <div class="nav-links">
+      <a href="#page1" > Home</a>
+      <a href="#page2" > Vote</a>
+      <a href="#page3" > Results</a>
+      <a href="#page4" > About</a>
+    </div>
+  </div>
+  	
+
+	<div class="page1" id="page1">
+		<div class="page1-left">
+			<div class="page1-left-heading">
+				<h2>Vote your</h2>
+				<h1><span class="highlight">FAVORITE </span></h1>
+				<h2>{{ latest_entry.name}}</h2>
+			</div>
+		<p>
+			<p>Description: {{ latest_entry.discription}}</p>
+		</p>
+		</div>
+		<div class="page1-right">
+			{% comment %} <div class="big-boss-logo-bg">
+			</div> {% endcomment %}
+			<div class="big-boss-logo-img">
+				<img src="{{ latest_entry.photo.url }}" alt="Candidate Photo">
+			</div>
+			<!-- #007F86 -->
+		</div>
+	</div>
+
+  <div class="page2" id="page2">
+	<main>
+		<h3>{{ latest_entry.votetitle}}</h3>
+		<form action="{% url 'vote' %}" method="post">
+			{% csrf_token %}
+			{% comment %} {{ form }} {% endcomment %}
+			<div class="card-container">
+				<div class="card-container1">
+					<div class="card">
+						<div class="card-image">
+							<img src="{{ latest_entry.candidate1.url }}" alt="Candidate 1">
+						</div>
+						<div class="card-content">
+							<input type="radio" name="candidate" id="candidate1"   value="option1">
+							<label for="candidate1">{{ latest_entry.name_candidate1}}</label>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-image">
+							<img src="{{ latest_entry.candidate2.url }}" alt="Candidate 2">
+						</div>
+						<div class="card-content">
+							<input type="radio" name="candidate" id="candidate2" value="option2">
+							<label for="candidate2">{{ latest_entry.name_candidate2}}</label>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-image">
+							<img src="{{ latest_entry.candidate3.url }}" alt="Candidate 3">
+						</div>
+						<div class="card-content">
+							<input type="radio" name="candidate" id="candidate3" value="option3">
+							<label for="candidate3">{{ latest_entry.name_candidate3}}</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="card-container2">
+					<div class="card">
+						<div class="card-image">
+							<img src="{{ latest_entry.candidate4.url }}" alt="Candidate 4">
+						</div>
+						<div class="card-content">
+							<input type="radio" name="candidate" id="candidate4" value="option4">
+							<label for="candidate4">{{ latest_entry.name_candidate4}}</label>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-image">
+							<img src="{{ latest_entry.candidate5.url }}" alt="Candidate 5">
+						</div>
+						<div class="card-content">
+							<input type="radio" name="candidate" id="candidate5" value="option5">
+							<label for="candidate5">{{ latest_entry.name_candidate5}}</label>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-image">
+							<img src="{{ latest_entry.candidate6.url }}" alt="Candidate 6">
+						</div>
+						<div class="card-content">
+							<input type="radio" name="candidate" id="candidate6" value="option6">
+							<label for="candidate6">{{ latest_entry.name_candidate6}}</label>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="vote-submit-btn">
+				<button type="submit" class="vote-btn">Vote</button>
+			</div>
+			
+		</form>
+	</main>
+  </div>  
+  	<div class="page3" id="page3">
+		<div class="page3-content">
+		 	<div class="graph-container">
+				<canvas id="vote-chart"></canvas>
+			</div>
+		</div>
+  	</div>
+
+  <div class="page4" id="page4" style=" background-image: url({{ latest_entry.footerbg.url }});">
+	<div class="page4-left">
+		<div class="content">
+			<div class="heading">
+				<h1>{{ latest_entry.brandtitle}}</h1>
+			</div>
+			<div class="watch-logo">
+				<h2>Watch now on</h2>
+				<div class="watch-logo-image">
+					<a href=""><img src="colors-logo.svg" alt="color-logo"></a>
+					<img src="voot-logo.png" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="page4-right">
+		<div class="footer-container">
+			<img src="{{ latest_entry.footerimg.url }}" alt="Big-Boss">
+			<div class="social-media-page4">
+				<h2>Follow us on</h2>
+				<div class="socil-media-icons">
+					<a href="{{ latest_entry.instagramlink}}"><i class="fa-brands fa-instagram"></i></a>
+					<a href="{{ latest_entry.facebooklink}}"><i class="fa-brands fa-facebook"></i></a>
+					<a href="{{ latest_entry.youtubelink}}"><i class="fa-brands fa-youtube"></i></a>
+					<a href="{{ latest_entry.twitterlink}}"><i class="fa-brands fa-twitter"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+
+  <script src="index.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="https://kit.fontawesome.com/e2c728a258.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+	// Retrieve the vote data from the Django view
+	var option1_percentage = {{ option1_percentage }};
+	var option2_percentage = {{ option2_percentage }};
+	var option3_percentage = {{ option3_percentage }};
+	var option4_percentage = {{ option4_percentage }};
+	var option5_percentage = {{ option5_percentage }};
+	var option6_percentage = {{ option6_percentage }};
+
+	// Create the chart
+	var ctx = document.getElementById('vote-chart').getContext('2d');
+	var voteChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: ['{{ latest_entry.name_candidate1}}', '{{ latest_entry.name_candidate2}}', '{{ latest_entry.name_candidate3}}', '{{ latest_entry.name_candidate4}}', '{{ latest_entry.name_candidate5}}', '{{ latest_entry.name_candidate6}}'],
+			datasets: [{
+				label: 'Vote Percentage',
+				data: [option1_percentage, option2_percentage, option3_percentage, option4_percentage, option5_percentage, option6_percentage],
+				backgroundColor: 'rgba(54, 162, 235, 0.5)',
+				borderColor: 'rgba(54, 162, 235, 1)',
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				y: {
+					beginAtZero: true,
+					max: 100
+				}
+			},
+			plugins: {
+				tooltip: {
+					callbacks: {
+						label: function (context) {
+							return context.dataset.label + ': ' + context.raw + '%';
+						}
+					}
+				}
+			}
+		}
+	});
+</script>
+</body>
+</html>

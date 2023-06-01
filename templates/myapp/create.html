@@ -1,0 +1,154 @@
+{% extends 'myapp/base.html' %}
+{% block create %}
+<style>
+    
+    .page4{
+        margin-top: 0%;
+        padding-top: 10vh;
+    }
+</style>
+<div class="page4" id="create">
+    <h1>Create Custom Voting System</h1>
+    <section class="pricing-plans">
+        <div class="pricing-card basic">
+          <div class="heading">
+            <h4>BASIC</h4>
+            <p>for small voting system</p>
+          </div>
+          <p class="price">
+            $5
+            <sub>/week</sub>
+          </p>
+          <ul class="features">
+            <li>
+                <i class="fa-solid fa-check"></i>
+                <strong>1 Custom </strong> voting
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>Upto 6 </strong> candidates
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>SD</strong> images 
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>10,000 </strong> votes
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>sqlite </strong> database
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>5 designes </strong> type
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>Data </strong> control panel
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>24/7 </strong> support
+            </li>
+          </ul>
+          <a href="{% url 'to_create' %}"><button class="cta-btn">SELECT</button></a>
+        </div>
+        <div class="pricing-card standard">
+          <div class="heading">
+            <h4>STANDARD</h4>
+            <p>for medium-sized voting system</p>
+          </div>
+          <p class="price">
+            $15
+            <sub>/week</sub>
+          </p>
+          <ul class="features">
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>3 Custom </strong> voting
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>Upto 12 </strong> candidates
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>HDR </strong> images
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>50,000 </strong> votes
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>sqlite </strong> database
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>10 designes </strong> types
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>Data </strong> control panel
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>24/7 </strong> support
+            </li>
+          </ul>
+          <a href="{% url 'to_create' %}"><button class="cta-btn">SELECT</button></a>
+        </div>
+        <div class="pricing-card premium">
+          <div class="heading">
+            <h4>PREMIUM</h4>
+            <p>for large-size voting system</p>
+          </div>
+          <p class="price">
+            $50
+            <sub>/week</sub>
+          </p>
+          <ul class="features">
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>10 Custom</strong> voting
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>Upto 20 </strong> candidates
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>4k</strong> images
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>2,00,000</strong> votes
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>sqlite</strong> database
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>Custome</strong> designes
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>Data</strong> control panel
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>24/7 priority</strong> support
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <strong>Advanced</strong> security features
+            </li>
+          </ul>
+          <a href="{% url 'to_create' %}"><button class="cta-btn">SELECT</button></a>
+        </div>
+      </section>
+</div>
+{% endblock create %}

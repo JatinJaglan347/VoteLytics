@@ -1,0 +1,446 @@
+{% extends 'myapp/base.html' %}
+
+{% block select_voting %}
+<style>
+.voting-cards{
+    padding-top: 10vh;
+    width: 100%;
+    text-align: center;
+}
+.voting-cards h3{
+  font-size: 3rem;
+  font-weight: 700;
+  padding-bottom: 60px;
+  padding-top: 40px;
+}
+.voting-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10vw;
+    
+}
+.voting-container-left{
+    box-sizing: border-box;
+    border-radius: 15px;
+    margin-right: 10vh;
+    background-color: #01CFFF;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25vw;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+
+}
+.voting-container-left-bg{
+    width: 49.5vw;
+    height: 24.5vw;
+    border-radius: 15px;
+    box-sizing: border-box;
+    background-size: cover;  
+    display: flex; 
+    flex-direction: row; 
+}
+
+.voting-container-leftcontent-heading{
+    line-height: 5vh;
+  }
+  .highlight{
+    animation-name: color-change;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    font-weight: 800;
+  }
+  
+  @keyframes color-change {
+    0% { color:  green; } 
+    14.28% { color: yellow } 
+    28.56% { color: blue; } 
+    42.84% { color: lime; } 
+    57.12% { color: cyan; } 
+    71.4% { color: #e52e71; } 
+    85.68% { color: #fb00ff; } 
+    100% { color: #ff8a00;}
+  }
+  
+  .voting-container-leftcontent-heading h2{
+    font-size: 2vw;
+    color: white;
+  }
+  
+.voting-container-leftcontent{
+    text-align: start;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 3vw;
+  }
+  
+  .voting-container-leftcontent h1{
+    font-weight: 800;
+    font-size: 2.5vw;
+    line-height: 3vw;
+    color: #fff;
+  }
+  
+  .voting-container-leftcontent p {
+    font-size: 0.8vw;
+    line-height: 1vw;
+    width: 17vw;
+    color: #fff;
+  }
+  
+  .voting-container-rightimg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .voting-container-rightimg img {
+    width: 25vw;
+    height: 25vh;
+    animation: zoomIn 1s ease forwards , floatImage 4s ease-in-out infinite;
+    animation-delay: 2s , 3s ;
+    z-index: 3; 
+  }
+  
+  @keyframes floatImage {
+    0%{
+      transform: translateY(0);
+    }
+    50%{
+      transform: translateY(10px);
+    }
+    100%{
+      transform: translateY(0);
+    }
+  }
+
+.voting-container-right{
+    box-sizing: border-box;
+    border-radius: 15px;
+    background-color: #01CFFF;
+    padding: 0.25vw;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+.voting-container-right-bg{
+    width: 19.5vw;
+    height: 19.5vw;
+    border-radius: 15px;
+    box-sizing: border-box;
+    background-size: cover; 
+    display: flex;
+    flex-direction: column;   
+}
+
+.voting-container-right-heading{
+  height: 60%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.voting-container-right-heading h1{
+  font-size: 2rem;
+  margin-top: 25%;
+  color: white;
+}
+.voting-container-right-btn{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: auto;
+  border-radius: 15px;
+  height: 40%;
+  background-color: rgba(250, 250, 250, 0.564);
+}
+.right-result-btn{
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 5%;
+  width: 13vw;
+  height: 2vw;
+  cursor: pointer;
+  background-color: #01CFFF;
+  border-color: transparent;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.right-result-btn:hover{
+  background-color: #01d0ff75;
+  border-color: #01CFFF;
+  border-width: 3px;
+
+}
+.right-vote-btn{
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 7%;
+  width: 13vw;
+  height: 2vw;
+  cursor: pointer;
+  background-color: #fee01a;
+  border-color: transparent;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.right-vote-btn:hover{
+  background-color: #fee01a73;
+  border-color: #fee01a;
+  border-width: 3px;
+
+}
+.voting-container1-left{
+  box-sizing: border-box;
+    border-radius: 15px;
+    margin-right: 10vh;
+    background-color: #fee01a;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25vw;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+.voting-container1-left-bg{
+  width: 49.5vw;
+  height: 24.5vw;
+  border-radius: 15px;
+  box-sizing: border-box;
+  background-size: cover; 
+  background-color: gray; 
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.voting-container1-content{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  
+}
+.voting-container1-content .fa-solid{
+  font-size: 6rem;
+  color: rgb(75, 75, 75);
+}
+.voting-container1-content h4{
+  padding-top: 30px;
+  font-size: 2rem;
+  color: rgb(75, 75, 75);
+}
+
+.voting-container1-right{
+  box-sizing: border-box;
+  border-radius: 15px;
+  background-color: #fee01a;
+  padding: 0.25vw;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+.voting-container1-right-bg{
+    width: 19.5vw;
+    height: 19.5vw;
+    border-radius: 15px;
+    background-color: gray;
+    box-sizing: border-box;
+    background-size: cover; 
+    display: flex;
+    flex-direction: column; 
+}
+.voting-container1-right-btn{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: auto;
+  border-radius: 15px;
+  height: 40%;
+  background-color: rgba(250, 250, 250, 0.564);
+}
+.voting-container1-right-btn .right-vote-btn{
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 7%;
+  width: 13vw;
+  height: 2vw;
+  cursor: pointer;
+  background-color: #fee01a;
+  border-color: transparent;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.voting-container1-right-btn .right-vote-btn:hover{
+  background-color: #fee01a73;
+  border-color: #fee01a;
+  border-width: 3px;
+}
+.voting-container1-right-heading .fa-solid{
+  margin-top: 25%;
+  font-size: 4rem;
+  color: rgb(75, 75, 75);
+}
+
+</style>
+
+<div class="voting-cards">
+    <h3>Voting</h3>
+    <div class="voting-container">
+        <div class="voting-container-left">
+            <div class="voting-container-left-bg" style="background-image: url('{{ latest_data.backgroundimg.url }}');">
+                <div class="voting-container-leftcontent">
+                    <div class="voting-container-leftcontent-heading">
+                        <h2>Vote your</h2>
+                        <h1><span class="highlight">FAVORITE </span></h1>
+                        <h2>{{ latest_data.name}}</h2>
+                    </div>
+                    <p>{{ latest_data.discription}}</p>
+                </div>
+                <div class="voting-container-rightimg">
+                    <img src="{{ latest_data.photo.url }}" alt="Photo">
+                </div>
+            </div>
+        </div>
+        <div class="voting-container-right">
+            <div class="voting-container-right-bg" style="background-image: url('{{ latest_data.footerbg.url }}');">
+              <div class="voting-container-right-heading">
+                <h1>{{ latest_data.brandtitle}}</h1>
+              </div>
+              <div class="voting-container-right-btn">
+                <a href="{% url 'vote' %}"><button class="right-vote-btn">Vote</button></a>
+                <a href="{% url 'results'%}"><button class="right-result-btn">Results</button></a>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="voting-container">
+      <div class="voting-container1-left">
+          <div class="voting-container1-left-bg">
+              <div class="voting-container1-content">
+                <i class="fa-solid fa-file-circle-exclamation"></i>
+                <h4>No Voting Available</h4>
+              </div>
+          </div>
+      </div>
+      <div class="voting-container1-right">
+          <div class="voting-container1-right-bg">
+            <div class="voting-container1-right-heading">
+              <h1><i class="fa-solid fa-file-circle-exclamation"></i></h1>
+            </div>
+            <div class="voting-container1-right-btn">
+              <a href="#"><button class="right-vote-btn">Vote</button></a>
+              <a href="#"><button class="right-result-btn">Results</button></a>
+            </div>
+          </div>
+      </div> 
+    </div>
+    <div class="voting-container">
+      <div class="voting-container1-left " style="background-color:#01CFFF;">
+          <div class="voting-container1-left-bg">
+              <div class="voting-container1-content">
+                <i class="fa-solid fa-file-circle-exclamation"></i>
+                <h4>No Voting Available</h4>
+              </div>
+          </div>
+      </div>
+      <div class="voting-container1-right" style="background-color:#01CFFF;">
+          <div class="voting-container1-right-bg">
+            <div class="voting-container1-right-heading">
+              <h1><i class="fa-solid fa-file-circle-exclamation"></i></h1>
+            </div>
+            <div class="voting-container1-right-btn">
+              <a href="#"><button class="right-vote-btn" style="background-color: #fee01a;">Vote</button></a>
+              <a href="#"><button class="right-result-btn">Results</button></a>
+            </div>
+          </div>
+      </div> 
+    </div>
+    <div class="voting-container">
+      <div class="voting-container1-left">
+          <div class="voting-container1-left-bg">
+              <div class="voting-container1-content">
+                <i class="fa-solid fa-file-circle-exclamation"></i>
+                <h4>No Voting Available</h4>
+              </div>
+          </div>
+      </div>
+      <div class="voting-container1-right">
+          <div class="voting-container1-right-bg">
+            <div class="voting-container1-right-heading">
+              <h1><i class="fa-solid fa-file-circle-exclamation"></i></h1>
+            </div>
+            <div class="voting-container1-right-btn">
+              <a href="#"><button class="right-vote-btn">Vote</button></a>
+              <a href="#"><button class="right-result-btn">Results</button></a>
+            </div>
+          </div>
+      </div> 
+    </div>
+</div>
+{% endblock select_voting %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- </div>
+            <h1>Latest Data</h1>
+            <img src="{{ latest_data.backgroundimg.url }}" alt="Background Image">
+            <h2>{{ latest_data.brandtitle }}</h2>
+            <img src="{{ latest_data.photo.url }}" alt="Photo">
+            <p>{{ latest_data.name }}</p>
+            <p>{{ latest_data.discription }}</p>
+            <h3>{{ latest_data.votetitle }}</h3>
+            <ul>
+                <li>{{ latest_data.name_candidate1 }}: <img src="{{ latest_data.candidate1.url }}" alt="{{ latest_data.name_candidate1 }}"></li>
+                <li>{{ latest_data.name_candidate2 }}: <img src="{{ latest_data.candidate2.url }}" alt="{{ latest_data.name_candidate2 }}"></li>
+                <li>{{ latest_data.name_candidate3 }}: <img src="{{ latest_data.candidate3.url }}" alt="{{ latest_data.name_candidate3 }}"></li>
+                <li>{{ latest_data.name_candidate4 }}: <img src="{{ latest_data.candidate4.url }}" alt="{{ latest_data.name_candidate4 }}"></li>
+                <li>{{ latest_data.name_candidate5 }}: <img src="{{ latest_data.candidate5.url }}" alt="{{ latest_data.name_candidate5 }}"></li>
+                <li>{{ latest_data.name_candidate6 }}: <img src="{{ latest_data.candidate6.url }}" alt="{{ latest_data.name_candidate6 }}"></li>
+            </ul>
+            <img src="{{ latest_data.footerimg.url }}" alt="Footer Image">
+            <img src="{{ latest_data.footerbg.url }}" alt="Footer Background">
+            <p>Instagram: {{ latest_data.instagramlink }}</p>
+            <p>Facebook: {{ latest_data.facebooklink }}</p>
+            <p>YouTube: {{ latest_data.youtubelink }}</p>
+            <p>Twitter: {{ latest_data.twitterlink }}</p>
+            <p>Date: {{ latest_data.date }}</p> 
+ -->

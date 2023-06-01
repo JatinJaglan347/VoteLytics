@@ -1,0 +1,153 @@
+{% extends 'myapp/base.html' %}
+{% block contact %}
+<style>
+    .contact{
+        padding-top: 130px;
+        padding-bottom: 50px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+
+    }
+    .contact-container{
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        height: 80vh;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); 
+        border-radius: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .contact-container > h1{
+        margin-top: 10px;
+        font-size: 3rem;
+        color: rgb(34, 34, 34);
+    }
+    .contact-container >p{
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        color: rgba(102, 102, 102, 0.67);
+    }
+    .contact-content{
+        display: flex;
+        text-decoration: none;
+    }
+    .contact-content-left > h1{
+        margin-top: 10px;
+        margin-bottom: 20px;
+        color: rgb(34, 34, 34);
+    }
+    .contact-content-left{
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        height: 35vh;
+        border: 1px solid black;
+        margin-right: 10vw;
+        border-radius: 5px;
+        color: rgb(34, 34, 34);
+
+    }
+
+
+    .contact-content-right > h1{
+        margin-top: 10px;
+        margin-bottom: 20px;
+        color: rgb(34, 34, 34);
+    }
+    a{
+        text-decoration: none;
+    }
+    .contact-content-right{
+        text-decoration: none;
+        display: flex;
+        height: 35vh;
+        flex-direction: column;
+        box-sizing: border-box;
+        border: 1px solid black;
+        border-radius: 5px;
+        color: rgb(34, 34, 34);
+    }
+    button{
+        display: flex;
+        width: 21vw;
+        height: 5vh;
+        margin-left: 2vw;
+        margin-right: 2vw;
+        margin-bottom: 3vh;
+        border-radius: 6px;
+        border:transparent;
+        color: rgb(34, 34, 34);
+    }
+    i{
+        width: 8vw;
+        font-size: 1.5rem;
+        padding-top: 1vh;
+        color: rgb(34, 34, 34);
+    }
+    p{
+        font-size: 1.1rem;
+        padding-top: 1vh;
+        color: rgb(34, 34, 34);
+    }
+    .location:hover , .phone:hover , .twitter:hover{
+
+        border: 2px solid #00acee;
+        border-color: #00acee;
+        cursor: pointer;
+        color: #00acee;
+    }
+    .mail:hover{
+        border: 2px solid #c71610;
+        border-color: #c71610;
+        cursor: pointer;
+        color: #c71610;
+    }
+    .ins:hover{
+        border: 2px solid #d62976;
+        border-color: #d62976;
+        cursor: pointer;
+        color: #d62976;
+    }
+    
+    .discord:hover{
+        border: 2px solid #7289DA;
+        border-color: #7289DA;
+        cursor: pointer;
+        color: #7289DA;
+        
+    }
+
+</style>
+
+<div class="contact">
+    <div class="contact-container">
+        <h1>Contact</h1>
+        <p>Vote Lytic is a voting organization company that creates and manages online voting systems. We handle customer databases and provide result presentation on our website.</p>
+        <div class="contact-content">
+            <div class="contact-content-left">
+                <h1>Address</h1>
+                <button class="location"><i class="fa-solid fa-location-dot"></i><p style="padding-top: 0.5vh;">Chitkara University Punjab ,    India</p></button>
+                <button class="mail"><i class="fa-solid fa-envelope"></i><p>support@company.com</p></button>
+                <button class="phone"><i class="fa-solid fa-phone"></i><p>+91.1234567890</p></button>
+                
+            </div>
+            <div class="contact-content-right">
+                <h1>Social Media</h1>
+                <button class="ins"><i class="fa-brands fa-instagram"></i><p>@VoteLytics.ig</p></button>
+                <button class="discord"><i class="fa-brands fa-discord"></i><p>VoleLytics#0001</p></button>
+                <button class="twitter"><i class="fa-brands fa-twitter"></i><p>@VoteLytics.tw</p></button> 
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock contact %}

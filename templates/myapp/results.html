@@ -1,0 +1,84 @@
+{% extends 'myapp/base.html' %}
+{% block results %}
+<style>
+    .page3{
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+    .page3-content h1{
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+        font-size: 4rem;
+    }
+    .graph-container{
+        margin: auto;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        height: 75vh;
+        background-color: white;
+        box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5); 
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+</style>
+
+
+<div class="page3" id="page3">
+    <div class="page3-content">
+        <div class="page3-content">
+            <h1>{{ latest_entry.brandtitle}}</h1>
+        </div>
+         <div class="graph-container">
+            
+            <canvas id="vote-chart"></canvas>
+        </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+	// Retrieve the vote data from the Django view
+	var option1_percentage = {{ option1_percentage }};
+	var option2_percentage = {{ option2_percentage }};
+	var option3_percentage = {{ option3_percentage }};
+	var option4_percentage = {{ option4_percentage }};
+	var option5_percentage = {{ option5_percentage }};
+	var option6_percentage = {{ option6_percentage }};
+
+	// Create the chart
+	var ctx = document.getElementById('vote-chart').getContext('2d');
+	var voteChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: ['{{ latest_entry.name_candidate1}}', '{{ latest_entry.name_candidate2}}', '{{ latest_entry.name_candidate3}}', '{{ latest_entry.name_candidate4}}', '{{ latest_entry.name_candidate5}}', '{{ latest_entry.name_candidate6}}'],
+			datasets: [{
+				label: 'Vote Percentage',
+				data: [option1_percentage, option2_percentage, option3_percentage, option4_percentage, option5_percentage, option6_percentage],
+				backgroundColor: 'rgba(54, 162, 235, 0.5)',
+				borderColor: 'rgba(54, 162, 235, 1)',
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				y: {
+					beginAtZero: true,
+					max: 100
+				}
+			},
+			plugins: {
+				tooltip: {
+					callbacks: {
+						label: function (context) {
+							return context.dataset.label + ': ' + context.raw + '%';
+						}
+					}
+				}
+			}
+		}
+	});
+</script>
+{% endblock results %}
